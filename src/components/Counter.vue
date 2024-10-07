@@ -7,6 +7,7 @@
             <span>{{ counterData.count }}</span>
             <button @click.prevent="increaseCounter()">+</button>
             <div>
+                <div>The Counter Value is {{ oddOrEven}}</div>
                 <input type="text" v-model="counterTitle" />
             </div>
         </div>
@@ -14,7 +15,7 @@
 </template>
 
 <script setup>
-    import {reactive, ref} from 'vue';
+    import {compile, computed, reactive, ref} from 'vue';
 
     const counterTitle = 'Counter Title'
     const counterData = reactive({
@@ -22,13 +23,17 @@
         // title: 'Counter Title from reactive'
     });
 
-    
+    const oddOrEven = computed(() => {
+        return counterData.count%2 == 0 ? 'Even' : 'Odd';
+    })
+
     const increaseCounter = () => {
         counterData.count++;
-    }
+    };
+
     const decreaseCounter = () => {
         counterData.count--;
-    }
+    };
 </script>
 
 
