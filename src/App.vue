@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import Counter from './components/Counter.vue';
 import MyComponent from './components/MyComponent.vue';
 </script>
 
 <template>
   <div>Hello World</div>
-
   <div>
-    <my-component></my-component>
+    <counter></counter>
   </div>
 </template>
