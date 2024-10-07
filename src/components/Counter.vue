@@ -1,19 +1,25 @@
 <template>
     <div class="text-center">
-        <div>Counter component</div>
+        <div>{{ counterTitle }}</div>
 
         <div>
             <button @click.prevent="decreaseCounter()">-</button>
             <span>{{ counter }}</span>
             <button @click.prevent="increaseCounter()">+</button>
+            <div>
+                <input type="text" v-model="counterTitle"/>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
+    import {ref} from 'vue';
 
-    const counter = ref(0);
+    
+
+    const counter = ref(10);
+    const counterTitle = ref('Counter Title');
 
     const increaseCounter = () => {
         counter.value++;

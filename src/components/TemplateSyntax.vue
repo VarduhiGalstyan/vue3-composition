@@ -11,8 +11,8 @@
 
  const titleAttr = 'title';
  const titleValue = 'This is title';
-//  const eventName = 'click';
- const eventName = 'mouseover' 
+ const eventName = 'click';
+//  const eventName = 'mouseover' 
 
  const objectOfAttrs = {
     id: dynamicId,
