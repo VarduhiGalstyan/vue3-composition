@@ -8,5 +8,6 @@ import TemplateSyntax from './components/TemplateSyntax.vue';
   <div>
     <counter></counter>
     <TemplateSyntax/>
+    <ComputedComponent/>
   </div>
 </template>
