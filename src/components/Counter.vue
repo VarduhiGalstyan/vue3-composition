@@ -10,23 +10,28 @@
     </div>
 </template>
 
-<script>
+<script >
+import {ref} from 'vue';
 export default{
-    data(){
-        return{
-            counter: 0
-        };
-    },
-    methods: {
-        increaseCounter(){
-            this.counter++;
-        },
-        decreaseCounter() {
-            this.counter--;
+    setup() {
+        const counter = ref(0);
+
+        function increaseCounter() {
+            counter.value++;
         }
+        function decreaseCounter() {
+            counter.value--;
+        }
+
+        return{
+            counter,
+            increaseCounter,
+            decreaseCounter
+        };
     }
 };
 </script>
+
 
 <style scoped>
  .text-center{
