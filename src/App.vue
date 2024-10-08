@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Counter from './components/Counter.vue';
+import ListRendering from './components/ListRendering.vue';
 import TemplateSyntax from './components/TemplateSyntax.vue';
 </script>
 
@@ -11,6 +12,8 @@ import TemplateSyntax from './components/TemplateSyntax.vue';
     <ComputedComponent/>
     <ClassComponent class="foo bar"/>
     <StyleComponent class="foo bar"/>
+    <ConditionalComponent/>
+    <ListRendering class="foo bar"/>
     <div style="margin-top:15rem"></div>
   </div>
 </template>
