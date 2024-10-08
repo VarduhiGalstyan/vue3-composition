@@ -3,22 +3,16 @@
         <h3>List Rendering</h3>
 
         <ul>
-            <li v-for="(book, index) of books">
-                {{ parentMessage }} - {{ index }} - {{ book.title }}
+            <li v-for="(book, index) of books" :key="book.id">
+                <div>{{ book.title }}</div>
+                <div><input type="text"></div>
             </li>
         </ul>
 
-        <ul>
-            <li v-for="(value, key, index) in myObject">
-                {{ index }} - {{ key }} - {{ value }}
-            </li>
-        </ul>
+        <div>
+            <button @click="shuffle">Shuffle</button>
+        </div>
 
-        <template v-for="n in 10">
-            <!-- <div v-for="n in 10">Leela Web dev - {{ n }}</div> -->
-            <div >Leela Web dev - {{ n }}</div>
-            <div>Channel</div>
-        </template>
     </div>
 </template>
 
@@ -37,5 +31,9 @@ const books = reactive([
 const myObject = reactive({
     title: 'my title',
     author: 'my author',
-})
+});
+
+const shuffle = () => {
+    books.sort(() => Math.random() -0.5);
+}
 </script>
