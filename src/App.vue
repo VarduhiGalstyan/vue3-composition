@@ -2,6 +2,7 @@
 import Counter from './components/Counter.vue';
 import ListRendering from './components/ListRendering.vue';
 import TemplateSyntax from './components/TemplateSyntax.vue';
+import WatchComponent from './components/WatchComponent.vue';
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import TemplateSyntax from './components/TemplateSyntax.vue';
     <ListRendering class="foo bar"/>
     <EventHandling/>
     <Forminput/>
+    <WatchComponent/>
     <div style="margin-top:15rem"></div>
   </div>
 </template>
