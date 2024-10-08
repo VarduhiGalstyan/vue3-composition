@@ -8,6 +8,7 @@ import StyleComponent from './components/StyleComponent.vue';
 import ConditionalComponent from './components/ConditionalComponent.vue';
 import ListRendering from './components/ListRendering.vue';
 import EventHandling from './components/EventHandling.vue';
+import Forminput from './components/Forminput.vue';
 
 const app = createApp(App);
 
@@ -19,6 +20,7 @@ app.component('StyleComponent', StyleComponent);
 app.component("ConditionalComponent", ConditionalComponent);
 app.component('ListRendering', ListRendering);
 app.component('EventHandling', EventHandling);
+app.component('Forminput', Forminput);
 
 app.mount('#app');
 
