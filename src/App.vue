@@ -14,6 +14,7 @@ import TemplateSyntax from './components/TemplateSyntax.vue';
     <StyleComponent class="foo bar"/>
     <ConditionalComponent/>
     <ListRendering class="foo bar"/>
+    <EventHandling/>
     <div style="margin-top:15rem"></div>
   </div>
 </template>
