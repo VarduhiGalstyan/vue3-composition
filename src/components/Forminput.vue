@@ -14,7 +14,7 @@
         </div>
 
         <div>
-            <input type="checkbox" v-model="checked" />
+            <input type="checkbox" v-model="checked" true-value="yes" false-value="no"/>
             {{ checked }}
         </div>
 
@@ -27,7 +27,19 @@
 
 
         <div>
-            
+            <input type="radio" value="one" v-model="picked" />one
+            <input type="radio" value="two" v-model="picked" />two
+
+            <div>{{ picked }}</div>
+        </div>
+
+        <div>
+            <div>SelectedValue: {{ selected }}</div>
+            <select v-model="selected">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
         </div>
     </div>
 </template>
@@ -37,6 +49,10 @@ import { ref } from 'vue';
 
 const text = ref('Leela');
 const messag = ref('Leela');
-const checked = ref(true);
+// const checked = ref(true);
+const checked = ref('yes');
 const checkedNames = ref([]);
+// const picked = ref('');
+const picked = ref('Two');
+const selected = ref('A');
 </script>
