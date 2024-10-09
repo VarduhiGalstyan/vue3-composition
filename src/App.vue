@@ -1,7 +1,7 @@
 <template>
   <div>Hello World</div>
   <div>
-    <counter v-if="showCounter" ref="counterRef"></counter>
+    <counter-component v-if="showCounter" ref="counterRef"></counter-component>
     <button @click.prevent="$event => showCounter =!showCounter">Toggle Counter</button>
     <TemplateSyntax/>
     <ComputedComponent/>
@@ -18,6 +18,16 @@
 </template>
 
 <script setup>
+// export default{
+//   components: {
+//     Counter
+//   },
+//   setup() {
+    
+//   }
+// };
+import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
+
 import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 
 const showCounter = ref(true);
