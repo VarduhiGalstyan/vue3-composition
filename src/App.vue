@@ -1,14 +1,8 @@
-<script setup lang="ts">
-import Counter from './components/Counter.vue';
-import ListRendering from './components/ListRendering.vue';
-import TemplateSyntax from './components/TemplateSyntax.vue';
-import WatchComponent from './components/WatchComponent.vue';
-</script>
-
 <template>
   <div>Hello World</div>
   <div>
-    <counter></counter>
+    <counter v-if="showCounter"></counter>
+    <button @click.prevent="$event => showCounter =!showCounter">Toggle Counter</button>
     <TemplateSyntax/>
     <ComputedComponent/>
     <ClassComponent class="foo bar"/>
@@ -22,3 +16,18 @@ import WatchComponent from './components/WatchComponent.vue';
     <div style="margin-top:15rem"></div>
   </div>
 </template>
+
+<script setup>
+import { onBeforeMount, onBeforeUpdate, onUpdated, ref } from 'vue';
+
+const showCounter = ref(true);
+
+onBeforeUpdate(() => {
+  console.log("on Before Updated");
+  
+});
+
+onUpdated(() => {
+  console.log('on Updated');
+});
+</script>

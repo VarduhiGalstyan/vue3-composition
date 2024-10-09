@@ -15,17 +15,42 @@
 </template>
 
 <script setup>
-    import {compile, computed, reactive, ref} from 'vue';
+    import { computed, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, reactive, ref} from 'vue';
 
-    const counterTitle = 'Counter Title'
+    const counterTitle = 'Counter Title';
     const counterData = reactive({
         count: 0,
         // title: 'Counter Title from reactive'
     });
 
+    onBeforeMount(() => {
+        console.log(document.getElementById('countertitle'));
+        console.log("before mouted");
+        
+    });
+    onMounted(() => {
+        console.log(document.getElementById('countertitle'));
+        console.log('mounted');
+    });
+    onBeforeUnmount(() => {
+        console.log(document.getElementById('countertitle'));
+        console.log('On Before unmount');
+    });
+    onUnmounted(() => {
+        console.log(document.getElementById('countertitle'));
+        console.log('On Unmounted');
+        
+    });
+    onBeforeUpdate(() => {
+        console.log('child Before Updated');
+    });
+    onUpdated(() => {
+        console.log('on Updated'); 
+    });
+
     const oddOrEven = computed(() => {
         return counterData.count%2 == 0 ? 'Even' : 'Odd';
-    })
+    });
 
     const increaseCounter = () => {
         counterData.count++;
