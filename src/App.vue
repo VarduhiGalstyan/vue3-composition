@@ -13,19 +13,14 @@
     <Forminput/>
     <WatchComponent/>
     <WatchEffctComponent/>
+    <SinglePost title="Leela Web Dev"/>
     <div style="margin-top:15rem"></div>
   </div>
 </template>
 
 <script setup>
-// export default{
-//   components: {
-//     Counter
-//   },
-//   setup() {
-    
-//   }
-// };
+import SinglePost from './components/SinglePost.vue';
+
 import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
 
 import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
