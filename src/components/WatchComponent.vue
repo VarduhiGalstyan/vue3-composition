@@ -17,10 +17,12 @@
        y: <input type="text" v-model = "y"/>
     </div>
   </div>
+
+  <div>Count: <input type="text" v-model="obj.count"</div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { reactive, ref, watch } from 'vue';
 
 const question = ref('');
 const answer = ref('Question genrally contain ?');
@@ -45,25 +47,31 @@ watch(question, async (newQuestion, oldQuestion) => {
 const x = ref(0);
 const y = ref(0);
 
-// watch(() => x.value + y.value,
-// (sum) => {
-//     console.log(`sum value is ${sum}`);
-// }
-// );
-
 watch([x, () => y.value], ([newX, newY]) => {
     console.log(`values of x and y is ${newX} and ${newY}`)
-})
-// watch(x, (newX) => {
-//     console.log(`value of x is ${newX}`);
+}, {immediate:true});
 
+// const obj = reactive({count: 0, name: 'Leela Web dev' });
+const obj = reactive({ count: { value: 0, name: 'Leela' }});
+
+// watch(() => obj.count, (newCount) => {
+//     console.log(`new Count Value is ${newCount}`);
 // });
-// watch(y, (newY) => {
-//     console.log(`value of y is ${newY}`);
 
+// watch(obj, (newCount) => {
+//     console.log(`new Count Value is ${newCount.count}`);
 // });
 
-// watch([x, y], ([newX, newY]) => {
-//     console.log(`values of x and y is ${newX} and ${newY}`)
-// })
+// watch(obj, (newObj, oldObj) => {
+//     console.log(`new Count Value is ${newObj.count} ${oldObj.console}`);
+// });
+
+watch(() => obj.count, (newCount, oldCount) => {
+    console.log(`new Count Value is ${newCount} ${oldCount}`);
+}, {deep: true});
+
+// setInterval(() => {
+//     obj.count = {value: Math.random()};
+// }, 
+// );
 </script>
