@@ -1,7 +1,7 @@
 <template>
   <div>Hello World</div>
   <div>
-    <counter v-if="showCounter"></counter>
+    <counter v-if="showCounter" ref="counterRef"></counter>
     <button @click.prevent="$event => showCounter =!showCounter">Toggle Counter</button>
     <TemplateSyntax/>
     <ComputedComponent/>
@@ -18,9 +18,14 @@
 </template>
 
 <script setup>
-import { onBeforeMount, onBeforeUpdate, onUpdated, ref } from 'vue';
+import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 
 const showCounter = ref(true);
+const counterRef = ref(null);
+
+onMounted(() => {
+  console.log(counterRef.value.increaseCounter());
+});
 
 onBeforeUpdate(() => {
   console.log("on Before Updated");

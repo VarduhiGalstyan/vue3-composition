@@ -1,7 +1,6 @@
 <template>
     <div class="text-center">
-        <!-- <div>{{ counterData.title }}</div> -->
-        <div>{{ counterTitle }}</div>
+        <div id="countertitle" :ref="(el) => updateRef(el) ">{{ counterTitle }}</div>
         <div>
             <button @click.prevent="decreaseCounter()">-</button>
             <span>{{ counterData.count }}</span>
@@ -11,33 +10,55 @@
                 <input type="text" v-model="counterTitle" />
             </div>
         </div>
+        <div v-for="item in items" :key="item" ref="itemsRef" >{{ item }}</div>
     </div>
 </template>
 
 <script setup>
-    import { computed, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, reactive, ref} from 'vue';
+    import { computed, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, reactive, ref, watchEffect} from 'vue';
 
     const counterTitle = 'Counter Title';
     const counterData = reactive({
         count: 0,
-        // title: 'Counter Title from reactive'
     });
 
+    const items = ref([1,2,3,4]);
+    const itemsRef = ref([]);
+    const counterRef = ref(null);
+
+
     onBeforeMount(() => {
-        console.log(document.getElementById('countertitle'));
+
         console.log("before mouted");
         
     });
+    // watchEffect(() => {
+        // console.log("watch effect");
+        // console.log(counterRef.value);
+
+        // if (counterRef.value){
+
+        // } else{
+
+        // }
+    // });
+
+    const updateRef = (el) => {
+        console.log('updet Ref Called');
+        
+    };
     onMounted(() => {
-        console.log(document.getElementById('countertitle'));
+        // console.log(counterRef.value.style.color = 'red');
         console.log('mounted');
+        console.log(itemsRef.value);
+        
     });
     onBeforeUnmount(() => {
-        console.log(document.getElementById('countertitle'));
+
         console.log('On Before unmount');
     });
     onUnmounted(() => {
-        console.log(document.getElementById('countertitle'));
+
         console.log('On Unmounted');
         
     });
@@ -59,6 +80,11 @@
     const decreaseCounter = () => {
         counterData.count--;
     };
+
+    defineExpose({
+        counterTitle,
+        increaseCounter
+    });
 </script>
 
 
