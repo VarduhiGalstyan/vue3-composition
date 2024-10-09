@@ -18,6 +18,7 @@ import WatchComponent from './components/WatchComponent.vue';
     <EventHandling/>
     <Forminput/>
     <WatchComponent/>
+    <WatchEffctComponent/>
     <div style="margin-top:15rem"></div>
   </div>
 </template>
