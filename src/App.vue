@@ -16,7 +16,10 @@
     <!-- <SinglePost postTitle="Leela Web Dev"/> -->
     <!-- <SinglePost :postTitle="postTitle" :id="42"/> -->
     <!-- <SinglePost :title="postDetalis.title" :id="postDetalis.id"/> -->
-     <SinglePost v-bind="postDetalis"/>
+     <SinglePost :postDetails="postDetails"/>
+
+    <div>parent: {{ postDetails.title }}</div>
+
     <div style="margin-top:15rem"></div>
   </div>
 </template>
@@ -31,10 +34,10 @@ import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 const showCounter = ref(true);
 // const postTitile = ref('leela web dev');
 // const postId = ref(42);
-const  postDetalis = {
-  title: 'Leela Web dev',
+const  postDetails =  ref({
+  title: 'Leela Web Dev',
   id: 42
-}
+});
 
 const counterRef = ref(null);
 

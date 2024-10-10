@@ -1,15 +1,19 @@
 <template>
     <div>Single Post Component</div>
-    <h3>{{ postTitle }}</h3>
+    <h3>Child: {{ postDetails.title }}</h3>
+
 </template>
 
 <script setup>
-//  const props = defineProps(['title']); //title-n App.vue-i
+import { computed, ref } from 'vue';
+
  const props = defineProps({
-    // postTitle: String,
-    title: String,
-    id: Number
+    postDetails: Object
  });
 
- console.log(props.title);
+ setTimeout(() => {
+    console.log('time out fired');
+    props.postDetails.title = 'Hi Leela';
+ }, 4000);
+
 </script>
