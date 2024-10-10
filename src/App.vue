@@ -13,7 +13,10 @@
     <Forminput/>
     <WatchComponent/>
     <WatchEffctComponent/>
-    <SinglePost title="Leela Web Dev"/>
+    <!-- <SinglePost postTitle="Leela Web Dev"/> -->
+    <!-- <SinglePost :postTitle="postTitle" :id="42"/> -->
+    <!-- <SinglePost :title="postDetalis.title" :id="postDetalis.id"/> -->
+     <SinglePost v-bind="postDetalis"/>
     <div style="margin-top:15rem"></div>
   </div>
 </template>
@@ -26,6 +29,13 @@ import CounterComponent from './components/Counter.vue'; //եթե main.js-ից �
 import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 
 const showCounter = ref(true);
+// const postTitile = ref('leela web dev');
+// const postId = ref(42);
+const  postDetalis = {
+  title: 'Leela Web dev',
+  id: 42
+}
+
 const counterRef = ref(null);
 
 onMounted(() => {
