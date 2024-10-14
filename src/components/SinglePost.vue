@@ -1,43 +1,15 @@
 <template>
-    <div>Single Post Component</div>
-    <h3 >{{ name }}</h3>
-
-    <div>Post Details: {{ postDetails.title }}</div>
-
-    <div>
-        <button @click="updateTitle">Change post Title</button>
-    </div>
+    <div>Id: {{ post.id }}</div>
+    <div>Title: {{ post.title }}</div>
+    <div><button @click.prevent="$event => $emit('editPost', post.id)">Edit Post</button></div>
+    <hr>
 </template>
 
 <script setup>
-import Person from '@/Person';
-//  import {stringifExpression} from '@vue/compiler-core';
- const props = defineProps({
-    // id: [String, Number]
-    name: {
-        type: String,
-        // required: true
-        default:  'Leela Default Value'
-    },
-    postDetails:{
+const props = defineProps({
+    post: {
         type: Object,
-        default(rowProps){
-            return {title: 'Default', id: 100}
-        }
-    },
-    message: {
-        validator(value){
-            return ['success', 'warning']
-        }
-    },
-    updateTitle: {
-        type: Function,
-        default(){
-            return 'Welcome';
-        }
-    },
-    person: {
-        type: Person
+        required: true
     }
 });
 </script>

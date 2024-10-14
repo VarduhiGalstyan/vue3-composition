@@ -12,7 +12,7 @@
     <Forminput/>
     <WatchComponent/>
     <WatchEffctComponent/> -->
-    <SinglePost 
+    <!-- <SinglePost 
       :name="'Leela Web Dev'"
       :postDetails="postDetails" 
       message="success" 
@@ -22,7 +22,9 @@
 
     <div>Parent: {{ postDetails.title }}</div>
 
-    <button @click.prevent="$event => showCounter =!showCounter">Toggle Counter</button>
+    <button @click.prevent="$event => showCounter =!showCounter">Toggle Counter</button> -->
+    
+    <Posts></Posts>
     <div style="margin-top:15rem"></div>
   </div>
 </template>
@@ -30,6 +32,7 @@
 <script setup>
 import SinglePost from './components/SinglePost.vue';
 import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
+import Posts from './components/Posts.vue';
 import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 import Person from './Person';
 
