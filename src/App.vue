@@ -50,37 +50,23 @@
     </SlotComponent>
     <SlotComponent /> -->
 <!-- ------------------------------------------------------------------------------- -->
-    <SlotComponent>
-      <!-- <template v-slot:header>
-        <h1>Header Content</h1>
-      </template> -->
+    <!-- <SlotComponent>
       <template #header="headerProps">
         <h1>Header Content</h1>
         <div>{{ headerProps }}</div>
       </template>
-
-      <!-- <template v-slot:default>
-        <div>Main Content</div>
-      </template> -->
       <template #default="defaultProps">
         <div>Main Content</div>
         <div>Main second part</div>
         <div>{{ defaultProps }}</div>
       </template>
-      <!-- <div>Main Content</div> -->
-
-      <!-- <template v-slot:footer>
-        <div>Footer Content</div>
-      </template> -->
       <template #footer="footerProps">
         <div>Footer Content</div>
         <div>{{ footerProps }}</div>
       </template>
-
-
-      <!-- <div>Main second part</div> -->
-    </SlotComponent>
+    </SlotComponent> -->
 <!-- -------------------------------------------------------------- -->
+    <PostsComponent :message="message"/>
 
     <div style="margin-top: 15rem"></div>
   </div>
@@ -98,6 +84,9 @@ import Person from './Person';
 import MyButton from './components/MyButton.vue';
 import BaseButton from './components/BaseButton.vue';
 import SlotComponent from './components/SlotComponent.vue';
+import PostsComponent from './components/Posts/Posts.vue'
+
+const message = 'Hi Leela Web Dev Provide /Inject';
 
 const x = ref(true);
 
