@@ -1,5 +1,5 @@
 <template>
-  <div>Hello World</div>
+  <!-- <div>Hello World</div> -->
   <div>
     <!-- <counter-component v-if="showCounter" ref="counterRef"></counter-component> -->
     <!-- <TemplateSyntax/>
@@ -24,12 +24,21 @@
 
     <button @click.prevent="$event => showCounter =!showCounter">Toggle Counter</button> -->
     
-    <Posts></Posts>
-    <div style="margin-top:15rem"></div>
+    <!-- <Posts></Posts> -->
+
+    <!-- <CostomInput :searchText="searchText" @updateText = "$event => searchText =$event"/> -->
+    <CostomInput v-model="searchText"/>
+
+    <!-- <CostomInput :modelValue="searchText" @update:modelValue="(newValue) => (searchText = newValue)" /> -->
+
+    <div>Parent: {{ searchText }}</div>
+
+    <div style="margin-top: 15rem"></div>
   </div>
 </template>
 
 <script setup>
+import CostomInput from './components/CostomInput.vue';
 import SinglePost from './components/SinglePost.vue';
 import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
 import Posts from './components/Posts.vue';
@@ -43,6 +52,8 @@ const  postDetails =  ref({
   title: 'Leela Web Dev',
   id: 42
 });
+
+const  searchText = ref('Hello Lella Web Dev');
 
 const updetails = () => {
   postDetails.value.title = 'changed fro'
