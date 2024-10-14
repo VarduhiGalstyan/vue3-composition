@@ -30,11 +30,15 @@
     <!-- <Posts></Posts> -->
 
     <!-- <CostomInput :searchText="searchText" @updateText = "$event => searchText =$event"/> -->
-    <CostomInput v-model="searchText"/>
+
+    <CostomInput v-model:title="searchText"/>
 
     <!-- <CostomInput :modelValue="searchText" @update:modelValue="(newValue) => (searchText = newValue)" /> -->
 
-    <div>Parent: {{ searchText }}</div>
+    <!-- <UserName v-model:firstName="firstName" v-model:lastName="lastName"/> -->
+    <div>Parent: {{ searchText }} {{ lastName }}</div>
+
+    <!-- <div>Parent: {{ searchText }}</div> -->
 
     <div style="margin-top: 15rem"></div>
   </div>
@@ -42,7 +46,7 @@
 
 <script setup>
 import TextComponent from './components/TextComponent.vue';
-
+import UserName from './components/UserName.vue';
 import CostomInput from './components/CostomInput.vue';
 import SinglePost from './components/SinglePost.vue';
 import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
@@ -61,6 +65,8 @@ const  postDetails =  ref({
 });
 
 const  searchText = ref('Hello Lella Web Dev');
+const firstName = ref('Leela');
+const lastName = ref('Web Dev')
 
 const yellowref =() => {
   x.value = !x.value;
