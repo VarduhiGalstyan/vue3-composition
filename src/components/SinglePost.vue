@@ -1,19 +1,43 @@
 <template>
     <div>Single Post Component</div>
-    <h3>Child: {{ postDetails.title }}</h3>
+    <h3 >{{ name }}</h3>
 
+    <div>Post Details: {{ postDetails.title }}</div>
+
+    <div>
+        <button @click="updateTitle">Change post Title</button>
+    </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
-
+import Person from '@/Person';
+//  import {stringifExpression} from '@vue/compiler-core';
  const props = defineProps({
-    postDetails: Object
- });
-
- setTimeout(() => {
-    console.log('time out fired');
-    props.postDetails.title = 'Hi Leela';
- }, 4000);
-
+    // id: [String, Number]
+    name: {
+        type: String,
+        // required: true
+        default:  'Leela Default Value'
+    },
+    postDetails:{
+        type: Object,
+        default(rowProps){
+            return {title: 'Default', id: 100}
+        }
+    },
+    message: {
+        validator(value){
+            return ['success', 'warning']
+        }
+    },
+    updateTitle: {
+        type: Function,
+        default(){
+            return 'Welcome';
+        }
+    },
+    person: {
+        type: Person
+    }
+});
 </script>
