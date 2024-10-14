@@ -54,24 +54,27 @@
       <!-- <template v-slot:header>
         <h1>Header Content</h1>
       </template> -->
-      <template #header>
+      <template #header="headerProps">
         <h1>Header Content</h1>
+        <div>{{ headerProps }}</div>
       </template>
 
       <!-- <template v-slot:default>
         <div>Main Content</div>
       </template> -->
-      <template #default>
+      <template #default="defaultProps">
         <div>Main Content</div>
         <div>Main second part</div>
+        <div>{{ defaultProps }}</div>
       </template>
       <!-- <div>Main Content</div> -->
 
       <!-- <template v-slot:footer>
         <div>Footer Content</div>
       </template> -->
-      <template #footer>
+      <template #footer="footerProps">
         <div>Footer Content</div>
+        <div>{{ footerProps }}</div>
       </template>
 
 
