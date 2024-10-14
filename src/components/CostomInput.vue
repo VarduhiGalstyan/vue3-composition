@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <input type="text" :value="modelValue" @input = "$event => $emit('update:title', $event.target.value)"/> -->
-        <input type="text" v-model="value">
+        <input type="text" :value="modelValue" @input="update">
     </div>
 </template>
 
@@ -12,19 +12,32 @@ const props = defineProps({
     title: {
         type: String,
         required: true
+    },
+    titlemodelModifiers: {
+        default: () => ({})
     }
 });
+
+// const  value = computed({
+    // get() {
+    //     return props.modelValue;
+    // },
+    // set(newValue) {
+    //     emit('update:modelValue', newValue )
+    // }
+// });
 
 const emit = defineEmits(['update:title']);
 
-const  value = computed({
-    get() {
-        return props.title
-    },
-    set(newValue) {
-        console.log('computed');
-        emit('update:title', value )
+const update = (event) => {
+    let value = event.target.value;
+
+    if (props.titlemodelModifiers['on-hyphens']){
+        value = value.split('-').join('');
     }
-});
+    emit('update:title', value);
+    // console.log(props.modelModifiers);
+    
+};
 
 </script>

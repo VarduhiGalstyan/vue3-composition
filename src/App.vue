@@ -31,12 +31,12 @@
 
     <!-- <CostomInput :searchText="searchText" @updateText = "$event => searchText =$event"/> -->
 
-    <CostomInput v-model:title="searchText"/>
+    <CostomInput v-model:title.no-hyphens="searchText"/>
 
     <!-- <CostomInput :modelValue="searchText" @update:modelValue="(newValue) => (searchText = newValue)" /> -->
 
     <!-- <UserName v-model:firstName="firstName" v-model:lastName="lastName"/> -->
-    <div>Parent: {{ searchText }} {{ lastName }}</div>
+    <div>Parent: {{ firstName }} {{ lastName }}</div>
 
     <!-- <div>Parent: {{ searchText }}</div> -->
 
