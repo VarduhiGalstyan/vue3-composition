@@ -40,7 +40,7 @@
 
     <!-- <div>Parent: {{ searchText }}</div> -->
 
-    <MyButton class="large" style="color: red" @click="onParentClick"></MyButton>
+    <BaseButton class="large" style="color: red" @click="onParentClick"></BaseButton>
     <div style="margin-top: 15rem"></div>
   </div>
 </template>
@@ -55,6 +55,7 @@ import Posts from './components/Posts.vue';
 import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 import Person from './Person';
 import MyButton from './components/MyButton.vue';
+import BaseButton from './components/BaseButton.vue';
 
 const x = ref(true);
 
