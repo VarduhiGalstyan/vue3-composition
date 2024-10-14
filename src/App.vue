@@ -40,7 +40,14 @@
 
     <!-- <div>Parent: {{ searchText }}</div> -->
 
-    <BaseButton class="large" style="color: red" @click="onParentClick"></BaseButton>
+    <!-- <BaseButton class="large" style="color: red" @click="onParentClick"></BaseButton> -->
+    
+    <!-- <SlotComponent>Click Me slot</SlotComponent> -->
+    <SlotComponent>
+      <span style="color: red">Click</span>
+      <span>Here - {{ searchText }}</span>
+    </SlotComponent>
+    <SlotComponent />
     <div style="margin-top: 15rem"></div>
   </div>
 </template>
@@ -56,6 +63,7 @@ import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 import Person from './Person';
 import MyButton from './components/MyButton.vue';
 import BaseButton from './components/BaseButton.vue';
+import SlotComponent from './components/SlotComponent.vue';
 
 const x = ref(true);
 
