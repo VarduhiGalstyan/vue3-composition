@@ -42,12 +42,43 @@
 
     <!-- <BaseButton class="large" style="color: red" @click="onParentClick"></BaseButton> -->
     
+    
     <!-- <SlotComponent>Click Me slot</SlotComponent> -->
-    <SlotComponent>
+    <!-- <SlotComponent>
       <span style="color: red">Click</span>
       <span>Here - {{ searchText }}</span>
     </SlotComponent>
-    <SlotComponent />
+    <SlotComponent /> -->
+<!-- ------------------------------------------------------------------------------- -->
+    <SlotComponent>
+      <!-- <template v-slot:header>
+        <h1>Header Content</h1>
+      </template> -->
+      <template #header>
+        <h1>Header Content</h1>
+      </template>
+
+      <!-- <template v-slot:default>
+        <div>Main Content</div>
+      </template> -->
+      <template #default>
+        <div>Main Content</div>
+        <div>Main second part</div>
+      </template>
+      <!-- <div>Main Content</div> -->
+
+      <!-- <template v-slot:footer>
+        <div>Footer Content</div>
+      </template> -->
+      <template #footer>
+        <div>Footer Content</div>
+      </template>
+
+
+      <!-- <div>Main second part</div> -->
+    </SlotComponent>
+<!-- -------------------------------------------------------------- -->
+
     <div style="margin-top: 15rem"></div>
   </div>
 </template>
