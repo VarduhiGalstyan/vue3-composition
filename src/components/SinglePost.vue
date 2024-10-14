@@ -1,7 +1,7 @@
 <template>
     <div>Id: {{ post.id }}</div>
     <div>Title: {{ post.title }}</div>
-    <div><button @click.prevent="$event => $emit('editPost', post.id)">Edit Post</button></div>
+    <div><button @click.prevent="updatePost">Edit Post</button></div>
     <hr>
 </template>
 
@@ -12,4 +12,17 @@ const props = defineProps({
         required: true
     }
 });
+
+const emit = defineEmits ({
+    editPost(postId){
+        if (postId && typeof postId == 'number') {
+            return true;
+        }
+        return false;
+    }
+});
+
+const updatePost = () => {
+    emit('editPost', props.post.id);
+};
 </script>
