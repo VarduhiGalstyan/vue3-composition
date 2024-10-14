@@ -1,6 +1,9 @@
 <template>
   <!-- <div>Hello World</div> -->
-  <div>
+  <div><button @click="yellowref">Change color</button>
+    <TextComponent className="bgyellow" v-if="x" />
+    <TextComponent className="bgred" v-else/>
+
     <!-- <counter-component v-if="showCounter" ref="counterRef"></counter-component> -->
     <!-- <TemplateSyntax/>
     <ComputedComponent/>
@@ -38,12 +41,16 @@
 </template>
 
 <script setup>
+import TextComponent from './components/TextComponent.vue';
+
 import CostomInput from './components/CostomInput.vue';
 import SinglePost from './components/SinglePost.vue';
 import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
 import Posts from './components/Posts.vue';
 import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 import Person from './Person';
+
+const x = ref(true);
 
 const showCounter = ref(true);
 // const postTitile = ref('leela web dev');
@@ -54,6 +61,10 @@ const  postDetails =  ref({
 });
 
 const  searchText = ref('Hello Lella Web Dev');
+
+const yellowref =() => {
+  x.value = !x.value;
+}
 
 const updetails = () => {
   postDetails.value.title = 'changed fro'
