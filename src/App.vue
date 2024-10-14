@@ -31,15 +31,16 @@
 
     <!-- <CostomInput :searchText="searchText" @updateText = "$event => searchText =$event"/> -->
 
-    <CostomInput v-model:title.no-hyphens="searchText"/>
+    <!-- <CostomInput v-model:title.no-hyphens="searchText"/> -->
 
     <!-- <CostomInput :modelValue="searchText" @update:modelValue="(newValue) => (searchText = newValue)" /> -->
 
     <!-- <UserName v-model:firstName="firstName" v-model:lastName="lastName"/> -->
-    <div>Parent: {{ firstName }} {{ lastName }}</div>
+    <!-- <div>Parent: {{ firstName }} {{ lastName }}</div> -->
 
     <!-- <div>Parent: {{ searchText }}</div> -->
 
+    <MyButton class="large" style="color: red" @click="onParentClick"></MyButton>
     <div style="margin-top: 15rem"></div>
   </div>
 </template>
@@ -53,6 +54,7 @@ import CounterComponent from './components/Counter.vue'; //եթե main.js-ից �
 import Posts from './components/Posts.vue';
 import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
 import Person from './Person';
+import MyButton from './components/MyButton.vue';
 
 const x = ref(true);
 
@@ -74,6 +76,11 @@ const yellowref =() => {
 
 const updetails = () => {
   postDetails.value.title = 'changed fro'
+}
+
+const  onParentClick = () => {
+  console.log('on parent click');
+  
 }
 
 const persone = new Person('Leela', 30)
