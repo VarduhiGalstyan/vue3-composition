@@ -72,7 +72,9 @@
       <button @click.prevent="showPosts = !showPosts">Click Here</button>
     </div> -->
 
-    <MouseTracker></MouseTracker>
+    <!-- <MouseTracker></MouseTracker> -->
+
+    <Posts/>
 
     <div style="margin-top: 15rem"></div>
   </div>
