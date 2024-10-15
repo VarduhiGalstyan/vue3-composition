@@ -66,7 +66,11 @@
       </template>
     </SlotComponent> -->
 <!-- -------------------------------------------------------------- -->
-    <PostsComponent />
+    <PostsComponent v-if="showPosts"/>
+
+    <div>
+      <button @click.prevent="showPosts = !showPosts">Click Here</button>
+    </div>
 
     <div style="margin-top: 15rem"></div>
   </div>
@@ -79,13 +83,25 @@ import CostomInput from './components/CostomInput.vue';
 import SinglePost from './components/SinglePost.vue';
 import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
 import Posts from './components/Posts.vue';
-import { onMounted, onBeforeUpdate, onUpdated, ref , provide } from 'vue';
+import { onMounted, onBeforeUpdate, onUpdated, ref , provide, defineAsyncComponent } from 'vue';
 import Person from './Person';
 import MyButton from './components/MyButton.vue';
 import BaseButton from './components/BaseButton.vue';
 import SlotComponent from './components/SlotComponent.vue';
-import PostsComponent from './components/Posts/Posts.vue'
+// import PostsComponent from './components/Posts/Posts.vue'
+// const PostsComponent = defineAsyncComponent(() => import('./components/Posts/Posts.vue'))
+import LoadingComponent from './components/LoadingComponent.vue';
 
+const PostsComponent = defineAsyncComponent({
+  loader: () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve (import('./components/Posts/Posts.vue'));
+        },2000);
+    });
+  },
+  loadingComponent: LoadingComponent,
+});
 
 const x = ref(true);
 
@@ -96,6 +112,8 @@ const  postDetails =  ref({
   title: 'Leela Web Dev',
   id: 42
 });
+
+const showPosts = ref(false);
 
 const  searchText = ref('Hello Lella Web Dev');
 // provide('message', message);
