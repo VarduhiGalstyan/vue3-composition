@@ -66,11 +66,13 @@
       </template>
     </SlotComponent> -->
 <!-- -------------------------------------------------------------- -->
-    <PostsComponent v-if="showPosts"/>
+    <!-- <PostsComponent v-if="showPosts"/>
 
     <div>
       <button @click.prevent="showPosts = !showPosts">Click Here</button>
-    </div>
+    </div> -->
+
+    <MouseTracker></MouseTracker>
 
     <div style="margin-top: 15rem"></div>
   </div>
@@ -91,6 +93,7 @@ import SlotComponent from './components/SlotComponent.vue';
 // import PostsComponent from './components/Posts/Posts.vue'
 // const PostsComponent = defineAsyncComponent(() => import('./components/Posts/Posts.vue'))
 import LoadingComponent from './components/LoadingComponent.vue';
+import MouseTracker from './components/MouseTracker.vue';
 
 const PostsComponent = defineAsyncComponent({
   loader: () => {
