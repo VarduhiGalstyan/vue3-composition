@@ -12,10 +12,22 @@
         Loading...
     </div>
 </template>
+
+<script>
+export default {
+    setup() {
+        const {x, y} = useMouse()
+    },
+    mounted() {
+        console.log(this.x);       
+    }
+};
+</script>
 <script setup>
 import { useFetch } from '@/useFatch';
 import SinglePost from './SinglePost.vue';
 import { compile, computed, ref } from 'vue';
+import { useMouse } from '@/mouse';
 // const posts =ref([
 //     {id: 1, title: 'Post 1'},
 //     {id: 2, title: 'Post 2'},
