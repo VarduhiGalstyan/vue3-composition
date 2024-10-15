@@ -1,6 +1,6 @@
 <template>
     <div>Posts Components</div>
-    <SinglePost :message="message"/>
+    <SinglePost/>
 </template>
 
 <script setup>

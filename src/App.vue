@@ -66,7 +66,7 @@
       </template>
     </SlotComponent> -->
 <!-- -------------------------------------------------------------- -->
-    <PostsComponent :message="message"/>
+    <PostsComponent />
 
     <div style="margin-top: 15rem"></div>
   </div>
@@ -79,14 +79,13 @@ import CostomInput from './components/CostomInput.vue';
 import SinglePost from './components/SinglePost.vue';
 import CounterComponent from './components/Counter.vue'; //եթե main.js-ից ջնջում ենք
 import Posts from './components/Posts.vue';
-import { onMounted, onBeforeUpdate, onUpdated, ref } from 'vue';
+import { onMounted, onBeforeUpdate, onUpdated, ref , provide } from 'vue';
 import Person from './Person';
 import MyButton from './components/MyButton.vue';
 import BaseButton from './components/BaseButton.vue';
 import SlotComponent from './components/SlotComponent.vue';
 import PostsComponent from './components/Posts/Posts.vue'
 
-const message = 'Hi Leela Web Dev Provide /Inject';
 
 const x = ref(true);
 
@@ -99,6 +98,14 @@ const  postDetails =  ref({
 });
 
 const  searchText = ref('Hello Lella Web Dev');
+// provide('message', message);
+
+function updateSearchText() {
+  searchText.value = 'Update Valu from parent';
+}
+
+provide('message', {searchText, updateSearchText});
+
 const firstName = ref('Leela');
 const lastName = ref('Web Dev')
 

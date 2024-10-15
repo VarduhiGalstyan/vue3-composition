@@ -1,8 +1,19 @@
 <template>
     <div>Categry Components</div>
-    <div>{{ message }}</div>
+    <div>{{ searchText }}</div>
+    <div>
+        <button @click="updateSearchText">Update Search Text</button>
+    </div>
 </template>
 
 <script setup>
-defineProps(['message']);
+import { inject, onMounted } from 'vue';
+
+
+const { searchText, updateSearchText } = inject('message');
+
+onMounted(() => {
+    console.log(searchText.value);
+});
+
 </script>

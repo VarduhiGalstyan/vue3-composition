@@ -14,6 +14,8 @@ import WatchEffctComponent from './components/WatchEffctComponent.vue';
 
 const app = createApp(App);
 
+// app.provide('main', 'Main value from app');
+
 // app.component('Counter', Counter);
 
 // app.component('TemplateSytax', TemplateSyntax);

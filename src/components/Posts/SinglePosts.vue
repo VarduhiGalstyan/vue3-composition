@@ -1,9 +1,13 @@
 <template>
     <div>Single Post Components</div>
-    <Category :message="message"/>
+    <Category />
+
+
 </template>
 
 <script setup>
+import { inject } from 'vue';
 import Category from './Category.vue';
-defineProps(['message']);
+
+const main= inject('main', 'defualt value');
 </script>
