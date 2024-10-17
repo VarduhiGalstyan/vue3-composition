@@ -1,8 +1,8 @@
 <template>
   <!-- <div>Hello World</div> -->
-  <div><button @click="yellowref">Change color</button>
-    <TextComponent className="bgyellow" v-if="x" />
-    <TextComponent className="bgred" v-else/>
+  <!-- <div><button @click="yellowref">Change color</button> -->
+    <!-- <TextComponent className="bgyellow" v-if="x" />
+    <TextComponent className="bgred" v-else/> -->
 
     <!-- <counter-component v-if="showCounter" ref="counterRef"></counter-component> -->
     <!-- <TemplateSyntax/>
@@ -78,7 +78,7 @@
      <TransitionComponent/>
 
     <div style="margin-top: 15rem"></div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script setup>

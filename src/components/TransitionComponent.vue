@@ -1,25 +1,38 @@
 <template>
-    <Transition mode="in-out">
-        <button v-if="docState == 'edit'" @click="docState = 'save'">Edit</button>
-        <button v-else-if="docState == 'save'"  @click="docState = 'cancel'">Save</button>
-        <button v-else="docState == 'cancel'"  @click="docState = 'edit'">Cancel</button>
+    <button @click="loadCompA()">Comp A</button>
+    <button @click="loadCompB()">Comp B</button>
+    <Transition mode="out-in">
+        <component :is="activeComponentName"/>
     </Transition>
 </template>
 
 <script setup>
+import CompA from './CompA.vue';
+import CompB from './CompB.vue';
 import { ref } from 'vue';
 
 const show = ref(true);
-const docState = ref('edit')
+
+const docState = ref('edit');
+const activeComponentName = ref(CompA);
+
+const loadCompA = () => {
+    activeComponentName.value = CompA;
+};
+const loadCompB = () => {
+    activeComponentName.value = CompB;
+};
+
 
 </script>
 
 <style scoped>
 .v-enter-from{
-    transform: translateY(-30px);
+    /* transform: translateY(-30px); */
+    opacity: 0;
 }
 .v-leave-to{
-    transform: translateY(30px);
+    opacity: 0;
 }
 .v-enter-active, .v-leave-active{
     transform: all 1s;
