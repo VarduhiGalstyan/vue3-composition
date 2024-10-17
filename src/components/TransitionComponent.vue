@@ -3,10 +3,7 @@
         <button @click="show = !show" >Toggle</button>
 
         <!-- <Transition > -->
-        <Transition 
-            name="bounce" 
-            enter-active-class="animate__animated animate__tada" 
-            leave-active-class="animate__animated bouce">
+        <Transition name="bounce" enter-active-class="bounce-active" leave-active-class="leave-active">
             <div v-if="show" style="text-align: center">Leela Web Dev</div>
         </Transition>
     </div>
