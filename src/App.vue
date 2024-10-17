@@ -1,8 +1,8 @@
 <template>
   <!-- <div>Hello World</div> -->
-  <!-- <div><button @click="yellowref">Change color</button> -->
-    <!-- <TextComponent className="bgyellow" v-if="x" />
-    <TextComponent className="bgred" v-else/> -->
+  <div><button @click="yellowref">Change color</button> 
+     <TextComponent className="bgyellow" v-if="x" />
+    <TextComponent className="bgred" v-else/> 
 
     <!-- <counter-component v-if="showCounter" ref="counterRef"></counter-component> -->
     <!-- <TemplateSyntax/>
@@ -75,10 +75,11 @@
     <!-- <MouseTracker></MouseTracker> -->
 
     <!-- <Posts/> -->
-     <TransitionComponent/>
+     <!-- <TransitionComponent/> -->
+      <TransitionList></TransitionList>
 
     <div style="margin-top: 15rem"></div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script setup>
@@ -98,7 +99,7 @@ import SlotComponent from './components/SlotComponent.vue';
 import LoadingComponent from './components/LoadingComponent.vue';
 import MouseTracker from './components/MouseTracker.vue';
 import TransitionComponent from './components/TransitionComponent.vue';
-
+import TransitionList from './TransitionList.vue';
 const PostsComponent = defineAsyncComponent({
   loader: () => {
     return new Promise((resolve, reject) => {
