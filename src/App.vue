@@ -1,12 +1,16 @@
 <template>
 <div>
   <ul>
-    <li><a href="#/">Home</a></li>
+    <!-- <li><a href="#/">Home</a></li>
     <li><a href="#/about">About</a></li>
-    <li><a href="#/adsd">Broken Link</a></li>
+    <li><a href="#/adsd">Broken Link</a></li> -->
+    <li><router-view to="/">Home</router-view></li>
+    <li><router-view to="/about">About</router-view></li>
+    <li><router-view to="/adsd"> Not Found</router-view></li>
   </ul>
   <div>
-    <component :is="currentView"></component>
+    <!-- <component :is="currentView"></component> -->
+     <router-view></router-view>
   </div>
 </div>
 </template>
@@ -33,7 +37,7 @@ const currentView = computed(() => {
 </script>
 
 <style scoped>
-a{
+li{
   color: green;
 }
 </style>
