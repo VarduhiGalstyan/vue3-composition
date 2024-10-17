@@ -1,8 +1,7 @@
-import './assets/main.css'
-
 import {createApp} from 'vue'
 import App from './App.vue'
 import About from './Pages/About.vue';
+import Posts from './Pages/Posts.vue';
 import Home from './Pages/Home.vue';
 import NotFound from './Pages/NotFound.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
@@ -10,6 +9,7 @@ import {createRouter, createWebHashHistory} from 'vue-router';
 const routes = [ 
    {path: '/', component: Home}, 
    {path: '/about', component: About},
+   {path: '/posts', component: Posts},
    {path: '/:pathMatch(.*)', component: NotFound}
 ];
 

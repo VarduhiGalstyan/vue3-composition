@@ -1,39 +1,32 @@
 <template>
-<div>
-  <ul>
-    <!-- <li><a href="#/">Home</a></li>
-    <li><a href="#/about">About</a></li>
-    <li><a href="#/adsd">Broken Link</a></li> -->
-    <li><router-view to="/">Home</router-view></li>
-    <li><router-view to="/about">About</router-view></li>
-    <li><router-view to="/adsd"> Not Found</router-view></li>
-  </ul>
-  <div>
-    <!-- <component :is="currentView"></component> -->
-     <router-view></router-view>
+  <HeaderComponent></HeaderComponent>
+  <div class="row">
+    <div class="col-md-12">
+      <router-view></router-view>
+    </div>
   </div>
-</div>
 </template>
 <script setup>
-import { computed, ref } from 'vue';
-import About from './Pages/About.vue';
-import Home from './Pages/Home.vue';
-import NotFound from './Pages/NotFound.vue';
+import HeaderComponent from './components/HeaderComponent.vue';
+// import { computed, ref } from 'vue';
+// import About from './Pages/About.vue';
+// import Home from './Pages/Home.vue';
+// import NotFound from './Pages/NotFound.vue';
 
-const routes = {
-  '/': Home,
-  '/about': About,
-};
+// const routes = {
+//   '/': Home,
+//   '/about': About,
+// };
 
-const currentPath = ref(window.location.hash);
+// const currentPath = ref(window.location.hash);
 
-window.addEventListener('hashchange', () => {
-  currentPath.value = window.location.hash;
-});
+// window.addEventListener('hashchange', () => {
+//   currentPath.value = window.location.hash;
+// });
 
-const currentView = computed(() => {
-  return routes[currentPath.value.slice(1) || '/'] || NotFound
-})
+// const currentView = computed(() => {
+//   return routes[currentPath.value.slice(1) || '/'] || NotFound
+// })
 </script>
 
 <style scoped>
