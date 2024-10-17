@@ -3,8 +3,11 @@
         <button @click="show = !show" >Toggle</button>
 
         <!-- <Transition > -->
-        <Transition name="fade">
-            <div v-if="show">Leela Web Dev</div>
+        <Transition 
+            name="bounce" 
+            enter-active-class="animate__animated animate__tada" 
+            leave-active-class="animate__animated bouce">
+            <div v-if="show" style="text-align: center">Leela Web Dev</div>
         </Transition>
     </div>
 </template>
@@ -14,33 +17,31 @@ import { ref } from 'vue';
 
 const show = ref(true);
 </script>
+
 <style scoped>
-/* .v-enter-from, .v-leave-to
-{
-opacity: 0;
+/* .bounce-enter-active {
+    animation: bounce-in 0.5s;
 }
-.v-enter-active, .v-leave-to{
-    transition: opacity 2s ease;
+
+.bounce-leave-active{
+    animation: bounce-in 0.5s reverse; 
 } */
+.bounce-active {
+    animation: bounce-in 0.5s;
+}
 
- /* .v-enter-from, .v-leave-to{
-    opacity: 0;
- }
- .v-enter-to, .v-leave-from{
-    opacity: 1;
- }
- .v-enter-active, .v-leave-active {
-    transition: opacity 2s ease;
- } */
-
- .fade-enter-from, .fade-leave-to{
-    opacity: 0;
- }
- .fade-enter-to, .fade-leave-from{
-    opacity: 1;
- }
- .fade-enter-active, .fade-leave-active {
-    transition: opacity 2s ease;
- }
-
+.leave-active{
+    animation: bounce-in 0.5s reverse; 
+}
+@keyframes bounce-in{
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.25);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
 </style>
