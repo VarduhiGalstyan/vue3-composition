@@ -40,4 +40,5 @@ const loadCompB = () => {
 .v-enter-active, .v-leave-active{
     transform: all 0.2s;
 }
+
 </style>

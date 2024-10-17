@@ -77,7 +77,8 @@
     <!-- <Posts/> -->
      <!-- <TransitionComponent/> -->
       <!-- <TransitionList></TransitionList> -->
-<TransitionComponent></TransitionComponent>
+      <TeleportComponent></TeleportComponent>
+    
     <div style="margin-top: 15rem"></div>
   </div>
 </template>
@@ -100,6 +101,8 @@ import LoadingComponent from './components/LoadingComponent.vue';
 import MouseTracker from './components/MouseTracker.vue';
 import TransitionComponent from './components/TransitionComponent.vue';
 import TransitionList from './TransitionList.vue';
+import TeleportComponent from './TeleportComponent.vue';
+
 const PostsComponent = defineAsyncComponent({
   loader: () => {
     return new Promise((resolve, reject) => {
