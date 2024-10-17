@@ -1,10 +1,12 @@
 <template>
-    <div>Id: {{ post.id }}</div>
+    <!-- <div>Id: {{ post.id }}</div>
     <div>Title: {{ post.title }}</div>
     <div><button @click.prevent="updatePost">Edit Post</button></div>
     
+    <div><input type="text" v-focus:foo.foo.bar="value" ></div>
+    <hr> -->
 
-    <div><input type="text" v-focus ></div>
+    <input type="text" >
 </template>
 
 <script setup>
@@ -20,6 +22,7 @@ const props = defineProps({
         required: true
     }
 });
+const value ='leela web dev'
 
 const emit = defineEmits ({
     editPost(postId){

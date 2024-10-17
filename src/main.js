@@ -16,6 +16,8 @@ const app = createApp(App);
 
 app.directive('focus', {
    mounted(el, binding, vNode, prevVnode) {
+      console.log(binding);
+      
       el.style.borderColor = 'yellow';
 
    }

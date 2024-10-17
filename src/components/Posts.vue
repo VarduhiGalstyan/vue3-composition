@@ -6,7 +6,7 @@
     </div>
     <div v-if="error">Error Encountered: {{ error.message }}</div>
     <div v-else-if="post">
-        <SinglePost  :post="post" :key="post.id" @edit-post="updatePost"></SinglePost>
+        <SinglePost  :post="post" :key="post.id" @edit-post="updatePost" v-focus ></SinglePost>
     </div>
     <div v-else>
         Loading...
