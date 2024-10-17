@@ -2,19 +2,22 @@
     <button @click="loadCompA()">Comp A</button>
     <button @click="loadCompB()">Comp B</button>
     <Transition mode="out-in">
-        <component :is="activeComponentName"/>
+        <keep-alive>
+            <component :is="activeComponentName"/>
+        </keep-alive>
+        <!-- <component :is="activeComponentName"/> -->
     </Transition>
 </template>
 
 <script setup>
-import CompA from './CompA.vue';
-import CompB from './CompB.vue';
-import { ref } from 'vue';
+import CompA from '../CompA.vue';
+import CompB from '../CompB.vue';
+import { ref, shallowRef } from 'vue';
 
 const show = ref(true);
 
 const docState = ref('edit');
-const activeComponentName = ref(CompA);
+const activeComponentName = shallowRef(CompA);
 
 const loadCompA = () => {
     activeComponentName.value = CompA;
@@ -35,6 +38,6 @@ const loadCompB = () => {
     opacity: 0;
 }
 .v-enter-active, .v-leave-active{
-    transform: all 1s;
+    transform: all 0.2s;
 }
 </style>

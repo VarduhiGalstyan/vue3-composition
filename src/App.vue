@@ -76,8 +76,8 @@
 
     <!-- <Posts/> -->
      <!-- <TransitionComponent/> -->
-      <TransitionList></TransitionList>
-
+      <!-- <TransitionList></TransitionList> -->
+<TransitionComponent></TransitionComponent>
     <div style="margin-top: 15rem"></div>
   </div>
 </template>
