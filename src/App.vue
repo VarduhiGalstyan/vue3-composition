@@ -1,8 +1,65 @@
 <template>
+<div>
+  <ul>
+    <li><a href="#/">Home</a></li>
+    <li><a href="#/about">About</a></li>
+    <li><a href="#/adsd">Broken Link</a></li>
+  </ul>
+  <div>
+    <component :is="currentView"></component>
+  </div>
+</div>
+</template>
+<script setup>
+import { computed, ref } from 'vue';
+import About from './Pages/About.vue';
+import Home from './Pages/Home.vue';
+import NotFound from './Pages/NotFound.vue';
+
+const routes = {
+  '/': Home,
+  '/about': About,
+};
+
+const currentPath = ref(window.location.hash);
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash;
+});
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] || NotFound
+})
+</script>
+
+<style scoped>
+a{
+  color: green;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template> -->
   <!-- <div>Hello World</div> -->
-  <div><button @click="yellowref">Change color</button> 
+  <!-- <div><button @click="yellowref">Change color</button> 
      <TextComponent className="bgyellow" v-if="x" />
-    <TextComponent className="bgred" v-else/> 
+    <TextComponent className="bgred" v-else/>  -->
 
     <!-- <counter-component v-if="showCounter" ref="counterRef"></counter-component> -->
     <!-- <TemplateSyntax/>
@@ -77,13 +134,14 @@
     <!-- <Posts/> -->
      <!-- <TransitionComponent/> -->
       <!-- <TransitionList></TransitionList> -->
-      <TeleportComponent></TeleportComponent>
+<!-- 52միջև -->
+      <!-- <TeleportComponent></TeleportComponent> -->
     
-    <div style="margin-top: 15rem"></div>
+    <!-- <div style="margin-top: 15rem"></div>
   </div>
-</template>
+</template> -->
 
-<script setup>
+<!-- <script setup>
 import TextComponent from './components/TextComponent.vue';
 import UserName from './components/UserName.vue';
 import CostomInput from './components/CostomInput.vue';
@@ -95,8 +153,6 @@ import Person from './Person';
 import MyButton from './components/MyButton.vue';
 import BaseButton from './components/BaseButton.vue';
 import SlotComponent from './components/SlotComponent.vue';
-// import PostsComponent from './components/Posts/Posts.vue'
-// const PostsComponent = defineAsyncComponent(() => import('./components/Posts/Posts.vue'))
 import LoadingComponent from './components/LoadingComponent.vue';
 import MouseTracker from './components/MouseTracker.vue';
 import TransitionComponent from './components/TransitionComponent.vue';
@@ -117,8 +173,6 @@ const PostsComponent = defineAsyncComponent({
 const x = ref(true);
 
 const showCounter = ref(true);
-// const postTitile = ref('leela web dev');
-// const postId = ref(42);
 const  postDetails =  ref({
   title: 'Leela Web Dev',
   id: 42
@@ -127,7 +181,6 @@ const  postDetails =  ref({
 const showPosts = ref(false);
 
 const  searchText = ref('Hello Lella Web Dev');
-// provide('message', message);
 
 function updateSearchText() {
   searchText.value = 'Update Valu from parent';
@@ -167,4 +220,4 @@ onBeforeUpdate(() => {
 onUpdated(() => {
   console.log('on Updated');
 });
-</script>
+</script> -->
