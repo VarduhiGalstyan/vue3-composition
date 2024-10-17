@@ -74,7 +74,8 @@
 
     <!-- <MouseTracker></MouseTracker> -->
 
-    <Posts/>
+    <!-- <Posts/> -->
+     <TransitionComponent/>
 
     <div style="margin-top: 15rem"></div>
   </div>
@@ -96,6 +97,7 @@ import SlotComponent from './components/SlotComponent.vue';
 // const PostsComponent = defineAsyncComponent(() => import('./components/Posts/Posts.vue'))
 import LoadingComponent from './components/LoadingComponent.vue';
 import MouseTracker from './components/MouseTracker.vue';
+import TransitionComponent from './components/TransitionComponent.vue';
 
 const PostsComponent = defineAsyncComponent({
   loader: () => {
