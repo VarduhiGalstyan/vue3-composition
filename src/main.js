@@ -14,6 +14,13 @@ import WatchEffctComponent from './components/WatchEffctComponent.vue';
 
 const app = createApp(App);
 
+app.directive('focus', {
+   mounted(el, binding, vNode, prevVnode) {
+      el.style.borderColor = 'yellow';
+
+   }
+})
+
 // app.provide('main', 'Main value from app');
 
 // app.component('Counter', Counter);
