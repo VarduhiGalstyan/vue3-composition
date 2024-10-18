@@ -6,17 +6,24 @@ import Home from './Pages/Home.vue';
 import NotFound from './Pages/NotFound.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
 import SingiePost from './Pages/SingiePost.vue';
+import PostComponent from './Pages/PostComponent.vue';
+import ProductComponent from './Pages/ProductComponent.vue';
+
+
 const routes = [ 
    {path: '/', component: Home}, 
    {path: '/about', component: About},
    {path: '/posts', component: Posts},
+   {path: '/:productName+', component: ProductComponent},
+   {path: '/:id(\\d+)', component: PostComponent},
    {path: '/posts/:id', component: SingiePost},
    {path: '/:pathMatch(.*)', component: NotFound}
 ];
 
 const router = createRouter({
    history: createWebHashHistory(),
-   routes
+   routes,
+   strict: true
 });
 
 const app = createApp(App);
