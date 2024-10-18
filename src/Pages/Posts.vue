@@ -1,4 +1,6 @@
 <template>
+<div class="row">
+  <div class="col-md-8">
     <div>  Posts page </div>
 
     <table class="table table-striped" v-if="posts.length">
@@ -21,6 +23,12 @@
             </tr>
         </tbody>
     </table>
+  </div>
+
+  <div class="col-md-4">
+    <router-view></router-view>
+  </div>
+</div>
 </template>
 
 <script setup>
@@ -39,3 +47,7 @@ const fetchPosts =  async() => {
 }
 
 </script>
+<style scoped>
+.col-md-4{
+background-color: red;
+}</style>

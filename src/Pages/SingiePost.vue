@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
@@ -25,6 +25,12 @@ const getPost = async() => {
     post.value = await reponse.json();
 };
 
-getPost();
+// watch(() => route.params, getPost);
+watchEffect(getPost);
+// watch(() => route.params, getPost, {immediate: true});
+// watchEffect(getPost, {immediate: true});
+
+
+// getPost();
 
 </script>
