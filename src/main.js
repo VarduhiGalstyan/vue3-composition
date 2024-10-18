@@ -5,11 +5,12 @@ import Posts from './Pages/Posts.vue';
 import Home from './Pages/Home.vue';
 import NotFound from './Pages/NotFound.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
-
+import SingiePost from './Pages/SingiePost.vue';
 const routes = [ 
    {path: '/', component: Home}, 
    {path: '/about', component: About},
    {path: '/posts', component: Posts},
+   {path: '/posts/:id', component: SingiePost},
    {path: '/:pathMatch(.*)', component: NotFound}
 ];
 

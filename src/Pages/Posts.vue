@@ -7,6 +7,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Body</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,9 @@
                 <td>{{ post.id }}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.body }}</td>
+                <!-- <td><router-link to ="/">View Post</router-link></td> -->
+                <td><router-link :to="{path: `/posts/${post.id}`}">View Post</router-link></td>
+
             </tr>
         </tbody>
     </table>
