@@ -13,11 +13,12 @@ import ProductComponent from './Pages/ProductComponent.vue';
 const routes = [ 
    {path: '/', component: Home}, 
    {path: '/about', component: About},
-   {path: '/posts', component: Posts, children: [
-      {path: ':id', component: SingiePost},
+   {path: '/articles', name: 'posts', component: Posts, children: [
+      {path: ':id', name: 'singlePost', component: SingiePost},
    ]},
-   {path: '/:productName+', component: ProductComponent},
-   {path: '/:id(\\d+)', component: PostComponent},
+   // {path: '/:productName+', component: ProductComponent},
+   // {path: '/:id(\\d+)', component: PostComponent},
+  
    // {path: '/posts/:id', component: SingiePost},
    {path: '/:pathMatch(.*)', component: NotFound}
 ];

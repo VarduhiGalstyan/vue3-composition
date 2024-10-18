@@ -18,7 +18,10 @@
                 <td>{{ post.title }}</td>
                 <td>{{ post.body }}</td>
                 <!-- <td><router-link to ="/">View Post</router-link></td> -->
-                <td><router-link :to="{path: `/posts/${post.id}`}">View Post</router-link></td>
+                <!-- <td><router-link :to="{path: `/post/${post.id}`}">View Post</router-link></td> -->
+                <!-- <td><router-link :to="{name: 'singlePost', params: {id: post.id}}">View Post</router-link></td> -->
+                <td><router-link :to="{name: '/articles', params: {id: post.id} }">View Post</router-link></td>
+
 
             </tr>
         </tbody>
