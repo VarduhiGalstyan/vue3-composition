@@ -8,11 +8,23 @@ import {createRouter, createWebHashHistory} from 'vue-router';
 import SingiePost from './Pages/SingiePost.vue';
 import PostComponent from './Pages/PostComponent.vue';
 import ProductComponent from './Pages/ProductComponent.vue';
+import LeftSideBar from './components/LeftSideBar.vue';
+import RightSideBar from './components/RightSideBar.vue';
 
 
 const routes = [ 
-   {path: '/', component: Home}, 
-   {path: '/about', component: About},
+   {path: '/', components: {
+      default: Home,
+      // LeftSideBar,
+      // RightSideBar
+      LeftSideBar: About,
+      RightSideBar,
+   }}, 
+   {path: '/about', components: {
+      default: About,
+      RightSideBar: LeftSideBar,
+      LeftSideBar: RightSideBar
+   }},
    {path: '/articles', name: 'posts', component: Posts, children: [
       {path: ':id', name: 'singlePost', component: SingiePost},
    ]},
