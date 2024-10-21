@@ -49,6 +49,27 @@ const router = createRouter({
    strict: true
 });
 
+function authAccess(to) {
+   console.log('accessing');
+   
+   return new Promise((resolve, reject) => {
+      setTimeout(() =>{
+         if(to.path.includes('articles') || to.path.includes('notfound')){
+            resolve(true);
+         }else{
+            resolve(false);
+         }
+      }, 2000 );
+   });
+}
+
+router.beforeEach(async(to, from, next) => {
+   const hasAccess = await authAccess(to);
+   if(!hasAccess) next ({path: '/notfound'});
+   else next(true);
+   
+});
+
 const app = createApp(App);
 app.use(router)
 app.mount('#app');
