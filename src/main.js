@@ -23,16 +23,20 @@ const routes = [
    //    RightSideBar,
    // }
    component: Home,
-   props: {name: 'Leela web dev'}
+   props: {name: 'Leela web dev'},
+   beforeEach(to, from) {
+      console.log('before Enter');
+      
+   }
    }, 
-   {path: '/about/:id', components: {
+   {path: '/about', components: {
       default: About,
       RightSideBar: LeftSideBar,
       LeftSideBar: RightSideBar
      },
      props: {default: true, RightSideBar:true, LeftSideBar: true}
    },
-   {path: '/search', component: SearchUser, props: route => ({query: route.query.q})},
+   {path: '/search', component: SearchUser, props: (route) => ({query: route.query.q})},
    {path: '/articles', name: 'posts', component: Posts, children: [
       {path: ':id', name: 'singlePost', component: SingiePost, props: true},
    ]},
@@ -42,6 +46,18 @@ const routes = [
    // {path: '/posts/:id', component: SingiePost},
    {path: '/:pathMatch(.*)', component: NotFound}
 ];
+
+function auth1(to,from){
+   console.log('auth1');
+   return false;
+   
+}
+
+function auth2() {
+   console.log('auth2');
+   return true;
+   
+}
 
 const router = createRouter({
    history: createWebHashHistory(),
@@ -59,18 +75,21 @@ function authAccess(to) {
          }else{
             resolve(false);
          }
-      }, 2000 );
+      }, 500 );
    });
 }
 
 router.beforeEach(async(to, from, next) => {
+   console.log('beforeEach');
    next(true);
-   
 });
 
+router.afterEach((to, from) => {
+   console.log('after Each');
+});
 router.beforeResolve(async(to)=> {
    if(to.path == '/articles') {
-      await authAccess(to);
+      // await authAccess(to);
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
     app.provide ( 'postsData', await response.json());
    }
