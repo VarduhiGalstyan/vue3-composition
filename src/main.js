@@ -10,23 +10,31 @@ import PostComponent from './Pages/PostComponent.vue';
 import ProductComponent from './Pages/ProductComponent.vue';
 import LeftSideBar from './components/LeftSideBar.vue';
 import RightSideBar from './components/RightSideBar.vue';
+import SearchUser from './Pages/SearchUser.vue';
 
 
 const routes = [ 
-   {path: '/', components: {
-      default: Home,
-      // LeftSideBar,
-      // RightSideBar
-      LeftSideBar: About,
-      RightSideBar,
-   }}, 
-   {path: '/about', components: {
+   {path: '/', 
+   //    components: {
+   //    default: Home,
+   //    // LeftSideBar,
+   //    // RightSideBar
+   //    LeftSideBar: About,
+   //    RightSideBar,
+   // }
+   component: Home,
+   props: {name: 'Leela web dev'}
+   }, 
+   {path: '/about/:id', components: {
       default: About,
       RightSideBar: LeftSideBar,
       LeftSideBar: RightSideBar
-   }},
+     },
+     props: {default: true, RightSideBar:true, LeftSideBar: true}
+   },
+   {path: '/search', component: SearchUser, props: route => ({query: route.query.q})},
    {path: '/articles', name: 'posts', component: Posts, children: [
-      {path: ':id', name: 'singlePost', component: SingiePost},
+      {path: ':id', name: 'singlePost', component: SingiePost, props: true},
    ]},
    // {path: '/:productName+', component: ProductComponent},
    // {path: '/:id(\\d+)', component: PostComponent},

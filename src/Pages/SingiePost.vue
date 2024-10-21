@@ -19,12 +19,20 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 
+const props = defineProps({
+    id: String
+});
+console.log(props);
+console.log(router.params);
+
+
+
 // console.log(route.params);
 
 const post = ref(null);
 
 const getPost = async() => {
-    const reponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${route.params.id}`);
+    const reponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`);
     post.value = await reponse.json();
 };
 
