@@ -11,6 +11,7 @@ import ProductComponent from './Pages/ProductComponent.vue';
 import LeftSideBar from './components/LeftSideBar.vue';
 import RightSideBar from './components/RightSideBar.vue';
 import SearchUser from './Pages/SearchUser.vue';
+import { createPinia } from 'pinia';
 
 
 const routes = [ 
@@ -95,8 +96,10 @@ router.beforeResolve(async(to)=> {
    }
 });
 
+const pinia = createPinia();
 const app = createApp(App);
 app.use(router)
+app.use(pinia);
 app.mount('#app');
 
 

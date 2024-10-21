@@ -1,10 +1,15 @@
 <template>
     <div>Home Page</div>
+    <div>Counter: {{ counter.count }}</div>
+    <div>
+        <button @click="counter.increment()">Increment</button>
+    </div>
 </template>
 
 <script setup>
-const props = defineProps(['name']);
-    console.log(props);
-    
+import {useCounterStore} from '../stores/counter';
+    const props = defineProps(['name']);
+    const counter = useCounterStore();
 
-</script>
+    console.log(props);
+ </script>
