@@ -1,31 +1,32 @@
-// import { defineStore } from "pinia";
 
-// export const useCounterStore = defineStore('counter', {
-//     state(){
+import { defineStore } from 'pinia';
+import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
+
+// export const useCounterStore = defineStore ('counterStore', {
+//     state: () => {
 //         return{
 //             count: 0
 //         };
 //     },
+//     getters: {
+//         doubleCount: (state) => state.count * 2
+//     },
 //     actions: {
 //         increment() {
-//             this.count++;
+//             this.count ++;
 //         }
 //     }
 // });
-import { defineStore } from 'pinia';
+export const useCounterStore = defineStore('counterStore', () => {
+    const count = ref(0);
 
-export const useCounterStore = defineStore ('counterStore', {
-    state: () => {
-        return{
-            count: 0
-        };
-    },
-    getters: {
-        doubleCount: (state) => state.count * 2
-    },
-    actions: {
-        increment() {
-            this.count ++;
-        }
+    const doubleCount = computed(() => count.value *3);
+
+    function increment() {
+        count.value ++;
     }
+    return{
+        count, doubleCount, increment
+    };
 });
