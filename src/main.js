@@ -49,7 +49,7 @@ const routes = [
 
 function auth1(to,from){
    console.log('auth1');
-   return false;
+   return true;
    
 }
 
@@ -88,7 +88,7 @@ router.afterEach((to, from) => {
    console.log('after Each');
 });
 router.beforeResolve(async(to)=> {
-   if(to.path == '/articles') {
+   if(to.path.includes('/articles')) {
       // await authAccess(to);
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
     app.provide ( 'postsData', await response.json());

@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref, watch, watchEffect } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
 const router = useRouter();
@@ -25,31 +25,27 @@ const props = defineProps({
 console.log(props);
 console.log(router.params);
 
+// onBeforeRouteUpdate((to,from) => {
+//     getPost();
+// } );
 
-
-// console.log(route.params);
 
 const post = ref(null);
 
 const getPost = async() => {
-    const reponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`);
+    const reponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
     post.value = await reponse.json();
 };
 
+getPost(props.id);
+onBeforeRouteUpdate((to,from) => {
+    getPost(to.params.id);
+} );
+
 const onBackClick = () => {
-    // router.push('/articles');
-    // router.push({path: '/articles'});
     router.go(-1);
-
-
 };
 
-// watch(() => route.params, getPost);
-watchEffect(getPost);
-// watch(() => route.params, getPost, {immediate: true});
-// watchEffect(getPost, {immediate: true});
-
-
-// getPost();
+// watchEffect();
 
 </script>

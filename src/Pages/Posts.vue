@@ -36,17 +36,36 @@
 </div>
 </template>
 
+<!-- <script>
+export default {
+    beforeRouteEnter(to, from){
+        console.log('Before router enter');
+    }
+};
+</script> -->
+
 <script setup>
-import { inject, onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { inject, onBeforeMount, onMounted, ref } from 'vue';
+import { onBeforeRouteLeave, useRouter } from 'vue-router';
 
 const router = useRouter();
 const posts = ref([]);
+
+// checkForAccess();
+
+// function checkForAccess(){
+
+//     router.push({path: '/'});
+// }
 
 onMounted(() => {
     posts.value = inject('postsData');
 });
 
+onBeforeRouteLeave((to, from) =>{
+    console.log("on Before Route Leave");
+    
+})
 
 const fetchPosts =  async() => {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
