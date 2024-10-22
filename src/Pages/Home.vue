@@ -3,9 +3,10 @@
     <div>Counter: {{ count }}</div>
     <div>doubleCount: {{ doubleCount}}</div>
     <!-- <div>doubleValue: {{ doubleValue}}</div> -->
-
+    <div>Name: {{ name }}</div>
     <div>
         <button @click="add()">Increment</button>
+        <button @click="$reset()">Reset</button>
     </div>
 </template>
 
@@ -30,19 +31,31 @@ import { mapActions, mapState, mapWritableState } from 'pinia';
 
     export default {
         computed: {
-            ...mapState(useCounterStore, ['count', 'doubleCount'])
+            ...mapWritableState(useCounterStore, ['count', 'doubleCount', 'name'])
             // ...mapState(useCounterStore, {
                 // counter: 'count',
                 // doubleCount: 'doubleCount',
                 // doubleValue: (state) => state.count+1
             // })
         },
+        mounted() {
+            this.$subscibe((mutation, state) => {
+                console.log(mutation),
+                consle.log(state);
+                
+            })
+        },
         methods: {
-            ...mapWritableState(useCounterStore, ['increment']),
+            ...mapActions(useCounterStore, ['increment', '$reset', '$patch', '$subscibe']),
             add() {
                 // console.log(this.count);
-                this.count++;
-                
+
+                this.$patch({
+                    count: this.count + 1,
+                    name: Math.random() + 'dsds'
+                })
+                // this.count++;
+                // this.name = Math.random() + 'dsds';
             }
         }
     };
