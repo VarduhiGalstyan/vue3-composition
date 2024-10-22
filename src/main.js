@@ -24,7 +24,6 @@ const routes = [
    //    RightSideBar,
    // }
    component: Home,
-   props: {name: 'Leela web dev'},
    beforeEach(to, from) {
       console.log('before Enter');
       
