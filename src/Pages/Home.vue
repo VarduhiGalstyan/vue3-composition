@@ -3,6 +3,8 @@
     <div>Counter: {{ count }}</div>
     <div>doubleCount: {{ doubleCount}}</div>
     <!-- <div>doubleValue: {{ doubleValue}}</div> -->
+     <div>doubleCountPlusOne: {{ doubleCountPlusOne(3) }}</div>
+     <div>User with 1: {{ getUserById(1).name }}</div>
     <div>Name: {{ name }}</div>
     <div>
         <button @click="add()">Increment</button>
@@ -16,7 +18,7 @@ import { storeToRefs } from 'pinia';
 
 const counter = useCounterStore();
 
-const {count, doubleCount, name} = storeToRefs(counter);
+const {count, doubleCount, name, doubleCountPlusOne, getUserById} = storeToRefs(counter);
 
 const {increment} = counter;
 
