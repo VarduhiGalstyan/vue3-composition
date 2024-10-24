@@ -1,12 +1,5 @@
 <template>
-  <AddEditNote v-model="newNote" ref="addEditNoteRef">
-    <template #button>
-      <button :disabled="!newNote" class="button is-link is-danger"
-        @click.prevent="addNote">
-        Add New Note
-      </button>
-    </template>
-  </AddEditNote>
+  
 
   <SingleNotes v-for="note in notes" :key="note.id" :note="note" />
 </template>
