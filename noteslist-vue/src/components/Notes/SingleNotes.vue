@@ -18,7 +18,6 @@
 <script setup>
 import { useNotesStore } from '@/stores/NotesStore';
 import { computed } from 'vue';
-console.log(111);
 
 const props = defineProps({
   note: {

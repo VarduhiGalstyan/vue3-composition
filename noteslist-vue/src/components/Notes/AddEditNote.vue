@@ -4,17 +4,34 @@
       <label class="label">Note</label>
       <div class="control">
         <textarea class="textarea" placeholder="Add New Note"
-         v-model="newNote" ref="newNoteRef"></textarea>
+         :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" ref="textareaRef">
+        </textarea>
       </div>
     </div>
 
     <div class="field is-grouped is-grouped-right">
       <div class="control">
-        <button :disabled="!newNote" class="button is-link is-danger"
-         @click.prevent="addNote">
-         Add New Note
-        </button>
+        <slot name="button" ></slot>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+
+const props = defineProps(['modelValue']);
+const emit = defineEmits(['update:modelValue']);
+
+const textareaRef = ref(null);
+
+const focusTextArea = () => {
+  // console.log('focus Text Area');
+  textareaRef.value.focus();
+};
+
+defineExpose({
+  focusTextArea
+});
+</script>
