@@ -17,12 +17,18 @@
         </tr>
       </tbody>
     </table>
+
+    <input type="text " 
+    class="input" 
+    placeholder="Enter Feedback ..."
+    v-autofocus
+    >
   </div>
 </template>
 
 <script setup>
 import { useNotesStore } from '@/stores/NotesStore';
-
+import { vAutofocus } from '@/directives/vAutofocus';
 
 const notesStore = useNotesStore();
 
