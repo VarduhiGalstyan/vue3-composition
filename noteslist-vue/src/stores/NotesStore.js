@@ -17,21 +17,27 @@ export const useNotesStore = defineStore('notesStore', () => {
 
   const addNote = (noteContent) => {
     const currentDate = new Date().getTime().toString();
-  const note = {
-    id: currentDate,
-    content: noteContent
-  };
+    const note = {
+      id: currentDate,
+      content: noteContent
+   };
 
-  notes.value.unshift(note);
+   notes.value.unshift(note);
   };
 
   const deleteNote = (noteId) => {
     notes.value = notes.value.filter((note) => note.id !== noteId)
+  };
 
+  const  updateNote = (id, content) => {
+    const index = notes.value.findIndex((note) => note.id == id);
+    // console.log(index);
+    notes.value[index].content = content;
   };
 
   return {
     notes,
+    updateNote,
     getNoteContentById,
     addNote,
     deleteNote
