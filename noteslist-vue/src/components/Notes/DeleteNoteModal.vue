@@ -1,7 +1,7 @@
 <template>
 <div class="modal is-active">
   <div class="modal-background"></div>
-  <div class="modal-card">
+  <div class="modal-card" ref="deleteModalRef">
     <header class="modal-card-head">
       <p class="modal-card-title">Delet Note?</p>
       <button class="delete" aria-label="close" @click="closeModal"></button>
@@ -18,6 +18,9 @@
 </template>
 
 <script setup>
+import { onClickOutside } from '@vueuse/core';
+import { onMounted, onUnmounted, ref } from 'vue';
+
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -25,10 +28,31 @@ const props = defineProps({
   }
 });
 
-const emits = defineEmits(['update:modalValue']);
+const handleClose = (event) => {
+  console.log("key close event");
+    if(event.ket == 'Escape'){
+      closeModal();
+    }
+};
 
 const closeModal = () => {
   emits('update:modalValue', false);
 };
+
+const deleteModalRef = ref(null);
+
+onClickOutside(deleteModalRef, closeModal);
+
+onMounted(() => {
+  document.addEventListener('keyup', handleClose);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('keyup', handleClose);
+
+})
+
+const emits = defineEmits(['update:modalValue']);
+
 
 </script>
