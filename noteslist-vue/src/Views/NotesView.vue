@@ -14,9 +14,10 @@
 <script setup>
 import SingleNotes from '@/components/Notes/SingleNotes.vue';
 import AddEditNote from '@/components/Notes/AddEditNote.vue';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useNotesStore } from '../stores/NotesStore' ;
 import { storeToRefs } from 'pinia';
+import { useCharactersLimit } from '@/composables/useCharactersLimit';
 
 const notesStore = useNotesStore();
 
@@ -32,6 +33,7 @@ const addNote = () => {
   addEditNoteRef.value.focusTextArea();
 };
 
-const deleteNote = (idToDelete) => {
-}
+// const deleteNote = (idToDelete) => {}
+
+useCharactersLimit(newNote);
 </script>
