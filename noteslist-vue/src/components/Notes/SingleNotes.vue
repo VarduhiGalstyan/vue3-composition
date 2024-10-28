@@ -12,12 +12,14 @@
       <RouterLink :to="{name:'editNote', params: {id: note.id}}"  class="card-footer-item" >Edit</RouterLink>
       <a href="#" class="card-footer-item" @click.prevent="handleDeleteClick">Delete</a>
     </footer>
+    <DeleteNoteModal v-if="modals.deleteModal" v-model="modals.deleteModal"/>
   </div>
 </template>
 
 <script setup>
 import { useNotesStore } from '@/stores/NotesStore';
-import { computed } from 'vue';
+import { computed, reactive } from 'vue';
+import DeleteNoteModal from './DeleteNoteModal.vue';
 
 const props = defineProps({
   note: {
@@ -38,6 +40,11 @@ const characterLength = computed(() => {
 
 
 const handleDeleteClick = () => {
-  notesStore.deleteNote(props.note.id);
+  // notesStore.deleteNote(props.note.id);
+  modals.deleteModal = true
 };
+
+const modals = reactive({
+  deleteModal: false
+});
 </script> 
